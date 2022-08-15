@@ -1,9 +1,25 @@
-function sum(a, b) {
-  return a + b;
+function add(...numbers) {
+  return numbers.reduce((total, num) => {
+    return total + num;
+  }, 0);
 }
 
-function subtract(a, b) {
-  return a - b;
+function subtract(...numbers) {
+  return numbers.reduce((total, num) => {
+    return total - num;
+  });
 }
 
-export {sum, subtract};
+function multiply(...numbers) {
+  return numbers.reduce((total, num) => {
+    return total * num;
+  });
+}
+
+function division(...numbers) {
+  return numbers.reduce((total, num) => {
+    return total / num;
+  });
+}
+
+export {add, subtract, multiply, division};
