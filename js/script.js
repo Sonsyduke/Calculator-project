@@ -13,19 +13,19 @@ import * as mathFunc from "./math_functions.js";
 // console.log(mathFunc.division(10, 5));
 // console.log(mathFunc.division(20, 5, 2, 5));
 
-function operator(num1, num2, func) {
+function operator(func, ...numbers) {
   if (func === "+") {
-    return mathFunc.add(num1, num2);
+    return mathFunc.add(...numbers);
   } else if (func === "-") {
-    return mathFunc.subtract(num1, num2);
+    return mathFunc.subtract(...numbers);
   } else if (func === "*") {
-    return mathFunc.multiply(num1, num2);
+    return mathFunc.multiply(...numbers);
   } else if (func === "/") {
-    return mathFunc.division(num1, num2);
+    return mathFunc.division(...numbers);
   }
 }
 
-console.log(operator(7, 3, "+"));
-console.log(operator(7, 3, "-"));
-console.log(operator(7, 3, "*"));
-console.log(operator(7, 3, "/"));
+console.log(operator("+", 7, 3, 12, 56));
+console.log(operator("-", 15, 6, 4));
+console.log(operator("*", 5, 6, 6));
+console.log(operator("/", 5, 6, 6));
