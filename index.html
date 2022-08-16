@@ -5,11 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <h1 id="main-heading">Calculator</h1>
+    <main class="main-container">
+      <h1 id="main-heading">Calculator</h1>
+
+      <div class="container">
+        <div class="screen">
+          <div class="top-section"></div>
+          <div class="buttom-section">0</div>
+        </div>
+        <div class="buttons">
+          <div class="top-buttons">
+            <button id="clear" class="top-btn">Clear</button>
+            <button id="delete" class="top-btn">Delete</button>
+          </div>
+          <div class="bottom-buttons">
+            <div class="row">
+              <button id="seven" class="bottom-btn">7</button>
+              <button id="eight" class="bottom-btn">8</button>
+              <button id="nine" class="bottom-btn">9</button>
+              <button id="plus" class="bottom-btn">+</button>
+            </div>
+            <div class="row">
+              <button id="four" class="bottom-btn">4</button>
+              <button id="five" class="bottom-btn">5</button>
+              <button id="six" class="bottom-btn">6</button>
+              <button id="subtract" class="bottom-btn">-</button>
+            </div>
+            <div class="row">
+              <button id="one" class="bottom-btn">1</button>
+              <button id="two" class="bottom-btn">2</button>
+              <button id="three" class="bottom-btn">3</button>
+              <button id="multiply" class="bottom-btn">*</button>
+            </div>
+            <div class="row">
+              <button id="dot" class="bottom-btn">.</button>
+              <button id="zero" class="bottom-btn">0</button>
+              <button id="nine" class="bottom-btn">=</button>
+              <button id="plus" class="bottom-btn">÷</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script type="module" src="./js/script.js"></script>
   </body>
 </html>

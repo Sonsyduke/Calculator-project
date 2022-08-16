@@ -1,0 +1,76 @@
+:root {
+  --main-background: rgb(1, 1, 66);
+  --bottom-section: rgb(0, 0, 26);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-container {
+  width: 60%;
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#main-heading {
+  font-size: 3rem;
+}
+
+.container {
+  margin-top: 30px;
+  width: 50%;
+  height: 70vh;
+  text-align: center;
+  background-color: var(--main-background);
+}
+
+.screen {
+  margin-top: 10px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: right;
+  padding: 0 50px;
+}
+
+.top-section,
+.buttom-section {
+  height: 50px;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.top-btn {
+  width: 43%;
+  height: 50px;
+  background-color: var(--bottom-section);
+  color: #fff;
+}
+
+.row {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.bottom-btn {
+  width: 20%;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: var(--bottom-section);
+  color: #fff;
+}
