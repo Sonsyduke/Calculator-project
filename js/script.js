@@ -1,42 +1,56 @@
 import * as mathFunc from "./math_functions.js";
 
 // Getting all the buttons
-let bottomInput = document.querySelector(".buttom-section");
-const clearBtn = document.querySelector("#clear");
-const deleteBtn = document.querySelector("#delete");
-const numericBtns = document.querySelectorAll(".numeric");
-const plusBtn = document.querySelector("#plus");
-const subtractBtn = document.querySelector("#subtract");
-const multiplyBtn = document.querySelector("#multiply");
-const divisionBtn = document.querySelector("#division");
-const equalBtn = document.querySelector("#equal");
-const dotBtn = document.querySelector("#dot");
+let displayTop = document.querySelector(".top-section");
+let displayBottom = document.querySelector(".buttom-section");
+// const clearBtn = document.querySelector("#clear");
+// const deleteBtn = document.querySelector("#delete");
+// const numericBtns = document.querySelectorAll(".numeric");
+// const plusBtn = document.querySelector("#plus");
+// const subtractBtn = document.querySelector("#subtract");
+// const multiplyBtn = document.querySelector("#multiply");
+// const divisionBtn = document.querySelector("#division");
+// const equalBtn = document.querySelector("#equal");
+// const dotBtn = document.querySelector("#dot");
+const buttons = [...document.querySelectorAll(".button")];
 
-plusBtn.addEventListener("click", () => {
-  console.log("Connected to Plus btn");
-});
-subtractBtn.addEventListener("click", () => {
-  console.log("Connected to Subtract btn");
-});
-multiplyBtn.addEventListener("click", () => {
-  console.log("Connected to multiply btn");
-});
-divisionBtn.addEventListener("click", () => {
-  console.log("Connected to division btn");
-});
-dotBtn.addEventListener("click", () => {
-  console.log("Connected to dot btn");
-});
-equalBtn.addEventListener("click", () => {
-  console.log("Connected to equal btn");
-});
-
-// Convert all the textContent to numbers
-numericBtns.forEach((e) => {
-  e.addEventListener("click", function () {
-    bottomInput.textContent += +e.textContent;
+buttons.map((button) => {
+  button.addEventListener("click", (e) => {
+    if (e.target.innerText === "Clear") {
+      displayBottom.innerText = "";
+    } else if (e.target.innerHTML === "Delete") {
+      displayBottom.innerText = displayBottom.innerText.slice(0, -1);
+    } else {
+      displayBottom.innerText += e.target.innerText;
+    }
   });
 });
+
+// plusBtn.addEventListener("click", () => {
+//   console.log("Connected to Plus btn");
+// });
+// subtractBtn.addEventListener("click", () => {
+//   console.log("Connected to Subtract btn");
+// });
+// multiplyBtn.addEventListener("click", () => {
+//   console.log("Connected to multiply btn");
+// });
+// divisionBtn.addEventListener("click", () => {
+//   console.log("Connected to division btn");
+// });
+// dotBtn.addEventListener("click", () => {
+//   console.log("Connected to dot btn");
+// });
+// equalBtn.addEventListener("click", () => {
+//   console.log("Connected to equal btn");
+// });
+
+// Convert all the textContent to numbers
+// numericBtns.forEach((e) => {
+//   e.addEventListener("click", function () {
+//     bottomInput.textContent += +e.textContent;
+//   });
+// });
 
 // clearBtn.addEventListener("click", () => {
 //   console.log("Connected to Clear btn");
