@@ -54,6 +54,8 @@ body {
   margin-bottom: 10px;
 }
 
+#clear,
+#delete,
 .top-btn {
   width: 43%;
   height: 50px;
@@ -68,7 +70,7 @@ body {
   justify-content: center;
 }
 
-.bottom-btn {
+.button {
   width: 20%;
   height: 50px;
   font-size: 1.5rem;
@@ -76,14 +78,18 @@ body {
   color: #fff;
 }
 
+#clear:hover,
+#delete:hover,
 .top-btn:hover,
-.bottom-btn:hover {
+.button:hover {
   cursor: pointer;
   background-color: var(--main-background);
 }
 
+#clear:active,
+#delete:active,
 .top-btn:active,
-.bottom-btn:active {
+.button:active {
   background-color: var(--main-background-active);
 }
 
