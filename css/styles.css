@@ -1,5 +1,6 @@
 :root {
   --main-background: rgb(1, 1, 66);
+  --main-background-active: rgb(6, 6, 68);
   --bottom-section: rgb(0, 0, 26);
 }
 
@@ -73,4 +74,15 @@ body {
   font-size: 1.5rem;
   background-color: var(--bottom-section);
   color: #fff;
+}
+
+.top-btn:hover,
+.bottom-btn:hover {
+  cursor: pointer;
+  background-color: var(--main-background);
+}
+
+.top-btn:active,
+.bottom-btn:active {
+  background-color: var(--main-background-active);
 }
