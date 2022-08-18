@@ -1,76 +1,47 @@
 import * as mathFunc from "./math_functions.js";
 
+class Calculator {
+  constructor(displayTop, displayBottom) {
+    this.displayTop = displayTop;
+    this.displayBottom = displayBottom;
+    this.clear();
+  }
+
+  clear() {
+    this.currentOperand = "";
+    this.previousOperand = "";
+    this.operation = undefined;
+  }
+  delete() {}
+  appendNumber(number) {
+    if (number === "." && this.currentOperand.includes(".")) return;
+    this.currentOperand = this.currentOperand.toString() + number.toString();
+  }
+  chooseOperation(operation) {}
+  compute() {}
+  updateDisplay() {
+    this.displayBottom.innerText = this.currentOperand;
+  }
+}
+
 // Getting all the buttons
 let displayTop = document.querySelector(".top-section");
 let displayBottom = document.querySelector(".buttom-section");
-// const clearBtn = document.querySelector("#clear");
-// const deleteBtn = document.querySelector("#delete");
-// const numericBtns = document.querySelectorAll(".numeric");
-// const plusBtn = document.querySelector("#plus");
-// const subtractBtn = document.querySelector("#subtract");
-// const multiplyBtn = document.querySelector("#multiply");
-// const divisionBtn = document.querySelector("#division");
-// const equalBtn = document.querySelector("#equal");
-// const dotBtn = document.querySelector("#dot");
-const buttons = [...document.querySelectorAll(".button")];
+// const buttons = [...document.querySelectorAll(".button")];
+const numericButtons = [...document.querySelectorAll(".numeric")];
+const operationButtons = [...document.querySelectorAll(".operation")];
+const equalsButton = document.querySelector("#equal");
+const deleteButton = document.querySelector("#clear");
+const clearButton = document.querySelector("#delete");
 
-buttons.map((button) => {
-  button.addEventListener("click", (e) => {
-    if (e.target.innerText === "Clear") {
-      displayBottom.innerText = "";
-    } else if (e.target.innerHTML === "Delete") {
-      displayBottom.innerText = displayBottom.innerText.slice(0, -1);
-    } else {
-      displayBottom.innerText += e.target.innerText;
-    }
+const calculator = new Calculator(displayTop, displayBottom);
+
+numericButtons.map((numButton) => {
+  numButton.addEventListener("click", () => {
+    calculator.appendNumber(numButton.innerText);
+    calculator.updateDisplay();
   });
 });
-
-// plusBtn.addEventListener("click", () => {
-//   console.log("Connected to Plus btn");
-// });
-// subtractBtn.addEventListener("click", () => {
-//   console.log("Connected to Subtract btn");
-// });
-// multiplyBtn.addEventListener("click", () => {
-//   console.log("Connected to multiply btn");
-// });
-// divisionBtn.addEventListener("click", () => {
-//   console.log("Connected to division btn");
-// });
-// dotBtn.addEventListener("click", () => {
-//   console.log("Connected to dot btn");
-// });
-// equalBtn.addEventListener("click", () => {
-//   console.log("Connected to equal btn");
-// });
-
-// Convert all the textContent to numbers
-// numericBtns.forEach((e) => {
-//   e.addEventListener("click", function () {
-//     bottomInput.textContent += +e.textContent;
-//   });
-// });
-
-// clearBtn.addEventListener("click", () => {
-//   console.log("Connected to Clear btn");
-// });
-// deleteBtn.addEventListener("click", () => {
-//   console.log("Connected to Delete btn");
-// });
-
-// TEST DATA
-// console.log(mathFunc.add(4, 5));
-// console.log(mathFunc.add(4, 5, 5, 6));
-
-// console.log(mathFunc.subtract(8, 5));
-// console.log(mathFunc.subtract(10, 5, 3, 8));
-
-// console.log(mathFunc.multiply(4, 5));
-// console.log(mathFunc.multiply(4, 5, 5, 6));
-
-// console.log(mathFunc.division(10, 5));
-// console.log(mathFunc.division(20, 5, 2, 5));
 
 function operator(func, ...numbers) {
   if (func === "+") {
