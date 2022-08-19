@@ -18,7 +18,14 @@ numericButtons.map((button) => {
     currentOperand = e.target.innerText;
     displayBottom.innerText += currentOperand;
     currentOperand = displayBottom.innerText;
-    console.log(currentOperand);
+  });
+});
+
+operationButtons.map((button) => {
+  button.addEventListener("click", (e) => {
+    operation = e.target.innerText;
+    previousOperand = `${currentOperand} ${operation}`;
+    displayTop.innerText = previousOperand;
   });
 });
 
@@ -44,14 +51,25 @@ function deleteNum() {
   displayBottom.innerText = currentOperand;
 }
 
-function operator(func, ...numbers) {
-  if (func === "+") {
-    return mathFunc.add(...numbers);
-  } else if (func === "-") {
-    return mathFunc.subtract(...numbers);
-  } else if (func === "*") {
-    return mathFunc.multiply(...numbers);
-  } else if (func === "/") {
-    return mathFunc.division(...numbers);
+function operator(func, prev, cur) {
+  switch (func) {
+    case "+":
+      displayTop.innerText = prev + cur;
+      break;
+    case "-":
+      displayTop.innerText = prev - cur;
+      break;
+    case "*":
+      displayTop.innerText = prev * cur;
+      break;
+    case "÷":
+      displayTop.innerText = prev / cur;
+      break;
   }
 }
+
+// currentOperand = 12;
+// previousOperand = 5;
+// operation = "÷";
+
+// console.log(operator(operation, previousOperand, currentOperand));
