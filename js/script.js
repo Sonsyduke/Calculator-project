@@ -78,7 +78,7 @@ function operator(func, prev, cur) {
       break;
     case "÷":
       total = prev / cur;
-      displayTop.innerText = total;
+      displayTop.innerText = total.toFixed(2);
       break;
   }
   return total;
