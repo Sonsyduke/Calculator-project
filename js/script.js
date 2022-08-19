@@ -1,5 +1,3 @@
-import * as mathFunc from "./math_functions.js";
-
 // Getting all the buttons
 let displayTop = document.querySelector(".top-section");
 let displayBottom = document.querySelector(".buttom-section");
@@ -25,6 +23,7 @@ operationButtons.map((button) => {
   button.addEventListener("click", (e) => {
     operation = e.target.innerText;
     previousOperand = `${currentOperand} ${operation}`;
+    displayBottom.innerText = "";
     displayTop.innerText = previousOperand;
   });
 });
@@ -34,6 +33,17 @@ clearButton.addEventListener("click", () => {
 });
 deleteButton.addEventListener("click", () => {
   deleteNum();
+});
+
+equalsButton.addEventListener("click", () => {
+  currentOperand = parseFloat(currentOperand);
+  previousOperand = parseFloat(previousOperand);
+  displayBottom.innerText = currentOperand;
+  currentOperand = operator(operation, previousOperand, currentOperand);
+  displayBottom.innerText = currentOperand;
+
+  previousOperand = "";
+  displayTop.innerText = previousOperand;
 });
 
 // ===================================
@@ -52,24 +62,24 @@ function deleteNum() {
 }
 
 function operator(func, prev, cur) {
+  let total = 0;
   switch (func) {
     case "+":
-      displayTop.innerText = prev + cur;
+      total = prev + cur;
+      displayTop.innerText = total;
       break;
     case "-":
-      displayTop.innerText = prev - cur;
+      total = prev - cur;
+      displayTop.innerText = total;
       break;
     case "*":
-      displayTop.innerText = prev * cur;
+      total = prev * cur;
+      displayTop.innerText = total;
       break;
     case "÷":
-      displayTop.innerText = prev / cur;
+      total = prev / cur;
+      displayTop.innerText = total;
       break;
   }
+  return total;
 }
-
-// currentOperand = 12;
-// previousOperand = 5;
-// operation = "÷";
-
-// console.log(operator(operation, previousOperand, currentOperand));
